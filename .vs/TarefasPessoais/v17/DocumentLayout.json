@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\andre.raraujo4\\source\\repos\\TarefasPessoais\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{171B8869-2F4B-4A47-B250-49113989FAF1}|TarefasPessoais\\TarefasPessoais.csproj|c:\\users\\andre.raraujo4\\source\\repos\\tarefaspessoais\\tarefaspessoais\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{171B8869-2F4B-4A47-B250-49113989FAF1}|TarefasPessoais\\TarefasPessoais.csproj|c:\\users\\andre.raraujo4\\source\\repos\\tarefaspessoais\\tarefaspessoais\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{171B8869-2F4B-4A47-B250-49113989FAF1}|TarefasPessoais\\TarefasPessoais.csproj|solutionrelative:tarefaspessoais\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{171B8869-2F4B-4A47-B250-49113989FAF1}|TarefasPessoais\\TarefasPessoais.csproj|C:\\Users\\andre.raraujo4\\source\\repos\\TarefasPessoais\\tarefaspessoais\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{171B8869-2F4B-4A47-B250-49113989FAF1}|TarefasPessoais\\TarefasPessoais.csproj|solutionrelative:tarefaspessoais\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{171B8869-2F4B-4A47-B250-49113989FAF1}|TarefasPessoais\\TarefasPessoais.csproj|c:\\users\\andre.raraujo4\\source\\repos\\tarefaspessoais\\tarefaspessoais\\daousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{171B8869-2F4B-4A47-B250-49113989FAF1}|TarefasPessoais\\TarefasPessoais.csproj|solutionrelative:tarefaspessoais\\daousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{171B8869-2F4B-4A47-B250-49113989FAF1}|TarefasPessoais\\TarefasPessoais.csproj|c:\\users\\andre.raraujo4\\source\\repos\\tarefaspessoais\\tarefaspessoais\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{171B8869-2F4B-4A47-B250-49113989FAF1}|TarefasPessoais\\TarefasPessoais.csproj|solutionrelative:tarefaspessoais\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,13 +31,51 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\andre.raraujo4\\source\\repos\\TarefasPessoais\\TarefasPessoais\\Login.cs",
+              "RelativeDocumentMoniker": "TarefasPessoais\\Login.cs",
+              "ToolTip": "C:\\Users\\andre.raraujo4\\source\\repos\\TarefasPessoais\\TarefasPessoais\\Login.cs",
+              "RelativeToolTip": "TarefasPessoais\\Login.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAhwCoAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T14:19:05.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\andre.raraujo4\\source\\repos\\TarefasPessoais\\TarefasPessoais\\Login.cs",
+              "RelativeDocumentMoniker": "TarefasPessoais\\Login.cs",
+              "ToolTip": "C:\\Users\\andre.raraujo4\\source\\repos\\TarefasPessoais\\TarefasPessoais\\Login.cs [Design]",
+              "RelativeToolTip": "TarefasPessoais\\Login.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T14:09:03.154Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DAOUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\andre.raraujo4\\source\\repos\\TarefasPessoais\\TarefasPessoais\\DAOUsuario.cs",
+              "RelativeDocumentMoniker": "TarefasPessoais\\DAOUsuario.cs",
+              "ToolTip": "C:\\Users\\andre.raraujo4\\source\\repos\\TarefasPessoais\\TarefasPessoais\\DAOUsuario.cs",
+              "RelativeToolTip": "TarefasPessoais\\DAOUsuario.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAC4AAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T12:18:57.862Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\andre.raraujo4\\source\\repos\\TarefasPessoais\\TarefasPessoais\\Form1.cs",
               "RelativeDocumentMoniker": "TarefasPessoais\\Form1.cs",
               "ToolTip": "C:\\Users\\andre.raraujo4\\source\\repos\\TarefasPessoais\\TarefasPessoais\\Form1.cs [Design]",
               "RelativeToolTip": "TarefasPessoais\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T14:17:39.854Z",
+              "WhenOpened": "2025-10-15T11:45:30.777Z",
               "EditorCaption": " [Design]"
             }
           ]
