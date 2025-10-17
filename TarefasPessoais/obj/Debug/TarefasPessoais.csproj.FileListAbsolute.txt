@@ -45,3 +45,8 @@ C:\Users\andre.raraujo4\source\repos\TarefasPessoais\TarefasPessoais\obj\Debug\T
 C:\Users\andre.raraujo4\source\repos\TarefasPessoais\TarefasPessoais\obj\Debug\TarefasPessoais.exe.config
 C:\Users\andre.raraujo4\source\repos\TarefasPessoais\TarefasPessoais\obj\Debug\TarefasPessoais.MenuUsuario.resources
 C:\Users\andre.raraujo4\source\repos\TarefasPessoais\TarefasPessoais\obj\Debug\TarefasPessoais.Login.resources
+C:\Users\andre.raraujo4\source\repos\TarefasPessoais\TarefasPessoais\obj\Debug\TarefasPessoais.GerenciarConta.resources
+C:\Users\andre.raraujo4\source\repos\TarefasPessoais\TarefasPessoais\obj\Debug\TarefasPessoais.CadastrarTarefa.resources
+C:\Users\andre.raraujo4\source\repos\TarefasPessoais\TarefasPessoais\obj\Debug\TarefasPessoais.ConsultarTarefa.resources
+C:\Users\andre.raraujo4\source\repos\TarefasPessoais\TarefasPessoais\obj\Debug\TarefasPessoais.AtualizarTarefa.resources
+C:\Users\andre.raraujo4\source\repos\TarefasPessoais\TarefasPessoais\obj\Debug\TarefasPessoais.ExcluirTarefa.resources

@@ -98,18 +98,49 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AtualizarTarefa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AtualizarTarefa.Designer.cs">
+      <DependentUpon>AtualizarTarefa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastrarTarefa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastrarTarefa.Designer.cs">
+      <DependentUpon>CadastrarTarefa.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadastrarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CadastrarUsuario.Designer.cs">
       <DependentUpon>CadastrarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultarTarefa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarTarefa.Designer.cs">
+      <DependentUpon>ConsultarTarefa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAOTarefa.cs" />
     <Compile Include="DAOUsuario.cs" />
+    <Compile Include="ExcluirTarefa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExcluirTarefa.Designer.cs">
+      <DependentUpon>ExcluirTarefa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GerenciarConta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GerenciarConta.Designer.cs">
+      <DependentUpon>GerenciarConta.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -125,11 +156,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AtualizarTarefa.resx">
+      <DependentUpon>AtualizarTarefa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastrarTarefa.resx">
+      <DependentUpon>CadastrarTarefa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CadastrarUsuario.resx">
       <DependentUpon>CadastrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarTarefa.resx">
+      <DependentUpon>ConsultarTarefa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExcluirTarefa.resx">
+      <DependentUpon>ExcluirTarefa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GerenciarConta.resx">
+      <DependentUpon>GerenciarConta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

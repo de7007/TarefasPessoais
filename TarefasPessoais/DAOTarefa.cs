@@ -8,19 +8,21 @@ using System.Windows.Forms;
 
 namespace TarefasPessoais
 {
-    internal class DAOUsuario
+    internal class DAOTarefa
     {
         public MySqlConnection conexao;//Criando uma chave para a classe MYSQLCONNECTION
         public string dados;
         public string comando;
         public int[] codigo;
-        public string[] nome;
-        public string[] email;
-        public string[] senha;
+        public string[] descricao;
+        public string[] prioridade;
+        public string[] lembrete;
+        public DateTime[] prazo;
+        public int[] usuarioCodigo;
         public int i;
         public int contador;
         public string msg;
-        public DAOUsuario()
+        public DAOTarefa()
         {
             //Conectar com o banco
             conexao = new MySqlConnection("server=localhost;DataBase=tarefasPessoais;Uid=root;Password=;Convert Zero DateTime=True");
@@ -36,12 +38,18 @@ namespace TarefasPessoais
             }//fim do try_catch
         }//fim do construtor
 
-        public void Inserir(string nome, string email, string senha)
+        public void Inserir(string descricao, string prioridade, DateTime prazo, string lembrete, int usuarioCodigo)
         {
             try
             {
-                dados = $"('','{nome}', '{email}', '{senha}')";
-                comando = $"Insert into usuario(codigo, nome, email, senha) values{dados}";
+                //Modificar
+                MySqlParameter parameter = new MySqlParameter();
+                parameter.ParameterName = "@Date";
+                parameter.MySqlDbType = MySqlDbType.Date;
+                parameter.Value = $"{prazo.Year}-{prazo.Month}-{prazo.Day}";
+
+                dados = $"('','{descricao}', '{prioridade}', '{parameter.Value}', '{lembrete}', '{usuarioCodigo}')";
+                comando = $"Insert into tarefa(codigo, descricao, prioridade, prazo,lembrete, usuarioCodigo) values{dados}";
                 //Lançar os dados no banco
                 MySqlCommand sql = new MySqlCommand(comando, conexao);
                 string resultado = "" + sql.ExecuteNonQuery();// Comando de inserção/Ações
@@ -56,20 +64,24 @@ namespace TarefasPessoais
         //Método para preencher o vetor
         public void PreencherVetor()
         {
-            string query = "select * from usuario";//Comando SQL para acesso aos dados
-                                                 //Instanciar os vetores
+            string query = "select * from tarefa";//Comando SQL para acesso aos dados
+                                                   //Instanciar os vetores
             codigo = new int[150];
-            nome = new string[150];
-            email = new string[150];
-            senha = new string[150];
+            descricao = new string[150];
+            prioridade = new string[150];
+            prazo = new DateTime[150];
+            lembrete = new string[150];
+            usuarioCodigo = new int[150];
 
             //Reafirmar que eu quero preencher com 0 e "" os vetores
             for (i = 0; i < 100; i++)
             {
                 codigo[i] = 0;
-                nome[i] = "";
-                email[i] = "";
-                senha[i] = "";
+                descricao[i] = "";
+                prioridade[i] = "";
+                prazo[i] = new DateTime();
+                lembrete[i] = "";
+                usuarioCodigo[i] = 0;
             }//fim do for
 
 
@@ -84,9 +96,11 @@ namespace TarefasPessoais
             while (leitura.Read())
             {
                 codigo[i] = Convert.ToInt32(leitura["codigo"]);
-                nome[i] = leitura["nome"] + "";
-                email[i] = leitura["email"] + "";
-                senha[i] = leitura["senha"] + "";
+                descricao[i] = leitura["descricao"] + "";
+                prioridade[i] = leitura["prioridade"] + "";
+                prazo[i] = Convert.ToDateTime(leitura["prazo"]);
+                lembrete[i] = leitura["lembrete"] + "";
+                usuarioCodigo[i] = Convert.ToInt32(leitura["usuarioCodigo"]);
                 i++;//Ande pelo vetor
                 contador++;//Contar exatamente quantos dados foram inseridos
             }//fim do while
@@ -107,7 +121,7 @@ namespace TarefasPessoais
             msg = "";//Instanciando a variável
             for (i = 0; i < contador; i++)
             {
-                msg += $"\n\nCódigo: {codigo[i]} \nNome: {nome[i]}\n Email: {email[i]}\n Senha: {senha[i]}";
+                msg += $"\n\nCódigo: {codigo[i]} \nDescrição: {descricao[i]}\n Prioridade: {prioridade[i]}\n Prazo: {prazo[i]}\n Lembrete: {lembrete[i]}\n Codigo do usuario: {usuarioCodigo[i]}";
             }//fim do for
              //Mostrar todos os dados do BD
             return msg;
@@ -120,70 +134,85 @@ namespace TarefasPessoais
             {
                 if (this.codigo[i] == codigo)
                 {
-                    msg = $"\nCódigo: {this.codigo[i]} \nNome: {nome[i]}\n Email: {email[i]}\n Senha: {senha[i]}";
+                    msg = $"\nCódigo: {this.codigo[i]} \nDescrição: {descricao[i]}\n Prioridade: {prioridade[i]}\n Prazo: {prazo[i]}\n Lembrete: {lembrete[i]}\n Codigo do usuario: {usuarioCodigo[i]}";
                     return msg;
                 }//fim do if
             }//fim do método
             return "\n\nCódigo informado não foi encontrado!";
         }//fim do método
 
-        public string ConsultarNome(int codigo)
+        public string ConsultarDescricao(int codigo)
         {
             PreencherVetor();
             for (i = 0; i < contador; i++)
             {
                 if (this.codigo[i] == codigo)
                 {
-                    return nome[i] + "";
+                    return descricao[i] + "";
                 }//fim do if 
             }//fim do for
-            return "Codigo não exite";
+            return "Codigo não existe";
         }//fim do método
 
-        public string ConsultarEmail(int codigo)
+        public string ConsultarPrioridade(int codigo)
         {
             PreencherVetor();
             for (i = 0; i < contador; i++)
             {
                 if (this.codigo[i] == codigo)
                 {
-                    return email[i] + "";
+                    return prioridade[i] + "";
                 }//fim do if 
             }//fim do for
-            return "Codigo não exite";
+            return "Codigo não existe";
         }//fim do método
 
-        public string ConsultarSenha(int codigo)
+        public DateTime ConsultarPrazo(int codigo)
         {
             PreencherVetor();
             for (i = 0; i < contador; i++)
             {
                 if (this.codigo[i] == codigo)
                 {
-                    return senha[i] + "";
+                    return prazo[i] ;
                 }//fim do if 
             }//fim do for
-            return "Codigo não exite";
+            return new DateTime();
         }//fim do método
 
-        public Boolean VerificarLogin(string email, string senha)
+        public string ConsultarLembrete(int codigo)
         {
             PreencherVetor();
             for (i = 0; i < contador; i++)
             {
-                if (this.email[i] == email && this.senha[i] == senha)
+                if (this.codigo[i] == codigo)
                 {
-                    return true;
+                    return lembrete[i] + "";
                 }//fim do if 
             }//fim do for
-            return false;
+            return "Codigo não existe";
         }//fim do método
+
+        public string ConsultarUsuarioCodigo(int codigo)
+        {
+            PreencherVetor();
+            for (i = 0; i < contador; i++)
+            {
+                if (this.codigo[i] == codigo)
+                {
+                    return usuarioCodigo[i] + "";
+                }//fim do if 
+            }//fim do for
+            return "Codigo não existe";
+        }//fim do método
+
 
         public string Atualizar(int codigo, string campo, string novoDado)
         {
             try
             {
-                string query = $"update usuario set {campo} = '{novoDado}' where codigo = '{codigo}'";
+               
+                string query = $"update tarefa set {campo} = '{novoDado}' where codigo = '{codigo}'";
                 //Executar o comando
                 MySqlCommand sql = new MySqlCommand(query, conexao);
                 string resultado = "" + sql.ExecuteNonQuery();
@@ -195,11 +224,48 @@ namespace TarefasPessoais
             }
         }//fim do método
 
-        public string Deletar(string email)
+        public string Atualizar(int codigo, string campo, DateTime novoDado)
         {
             try
             {
-                string query = $"delete from usuario where email = '{email}'";
+                //Modificar
+                MySqlParameter parameter = new MySqlParameter();
+                parameter.ParameterName = "@Date";
+                parameter.MySqlDbType = MySqlDbType.Date;
+                parameter.Value = $"{novoDado.Year}-{novoDado.Month}-{novoDado.Day}";
+                string query = $"update tarefa set {campo} = '{novoDado}' where codigo = '{codigo}'";
+                //Executar o comando
+                MySqlCommand sql = new MySqlCommand(query, conexao);
+                string resultado = "" + sql.ExecuteNonQuery();
+                return resultado + " dado atualizado com sucesso!";
+            }
+            catch (Exception erro)
+            {
+                return $"\nAlgo deu errado!\n\n {erro}";
+            }
+        }//fim do método
+
+        public string Atualizar(int codigo, string campo, int novoDado)
+        {
+            try
+            {
+                string query = $"update tarefa set {campo} = '{novoDado}' where codigo = '{codigo}'";
+                //Executar o comando
+                MySqlCommand sql = new MySqlCommand(query, conexao);
+                string resultado = "" + sql.ExecuteNonQuery();
+                return resultado + " dado atualizado com sucesso!";
+            }
+            catch (Exception erro)
+            {
+                return $"\nAlgo deu errado!\n\n {erro}";
+            }
+        }//fim do método
+
+        public string Deletar(int codigo)
+        {
+            try
+            {
+                string query = $"delete from tarefa where codigo = '{codigo}'";
                 MySqlCommand sql = new MySqlCommand(query, conexao);
                 string resultado = "" + sql.ExecuteNonQuery();
                 return resultado + " dado excluído!";
@@ -210,6 +276,6 @@ namespace TarefasPessoais
             }
         }//fim do método
 
-        
+
     }//FIM DO METODO    
 }//FIM DO PROJETO

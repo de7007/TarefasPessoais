@@ -13,8 +13,10 @@ namespace TarefasPessoais
 {
     public partial class Login : Form
     {
+        DAOUsuario dao;
         public Login()
         {
+            dao = new DAOUsuario();
             InitializeComponent();
         }
 
@@ -30,26 +32,30 @@ namespace TarefasPessoais
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            { 
-            
-                string email = textBox2.Text;
-                string senha = textBox3.Text;
-                DAOUsuario daoUsuario= new DAOUsuario();
-                
-            }
-            catch (Exception ex)
+            string email = textBox2.Text;
+            string senha = textBox3.Text;
+            Boolean resultado = dao.VerificarLogin(email, senha);
+            if ( resultado == true)
             {
-                MessageBox.Show($"Usuario errado:( \n\n{ex}");
+                MenuUsuario menuUsuario = new MenuUsuario();
+                menuUsuario.Show();
+            }
+            else
+            {
+                MessageBox.Show("Usuário e/ou senha estão incorretos");
             }
 
-            MenuUsuario menuUsuario = new MenuUsuario();
-            menuUsuario.Show();
+            
         }//entrar
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }//fechar
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }//fim do metodo
 }//fim do projeto
